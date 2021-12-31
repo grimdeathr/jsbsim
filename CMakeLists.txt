@@ -27,7 +27,8 @@ function(get_tail INPUT_STRING OUTPUT_STRING SEPARATOR)
   string(STRIP ${TEMP_TAIL} TAIL)
   set(${OUTPUT_STRING} ${TAIL} PARENT_SCOPE)
 endfunction()
-
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED TRUE)
 find_package(PkgConfig)
 
 ################################################################################
