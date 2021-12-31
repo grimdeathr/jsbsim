@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 3.1)
-
+set (CMAKE_C_STANDARD 99)
+set (CMAKE_CXX_STANDARD 11)
 ################################################################################
 # Project description                                                          #
 ################################################################################
@@ -35,8 +36,8 @@ find_package(PkgConfig)
 ################################################################################
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set (CMAKE_C_STANDARD 99)
-set (CMAKE_CXX_STANDARD 11)
+
+
 add_subdirectory(src)
 get_target_property(libJSBSim_LINK_LIBRARIES libJSBSim LINK_LIBRARIES)
 
