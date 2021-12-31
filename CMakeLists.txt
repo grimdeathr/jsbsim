@@ -27,8 +27,7 @@ function(get_tail INPUT_STRING OUTPUT_STRING SEPARATOR)
   string(STRIP ${TEMP_TAIL} TAIL)
   set(${OUTPUT_STRING} ${TAIL} PARENT_SCOPE)
 endfunction()
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_STANDARD_REQUIRED TRUE)
+
 find_package(PkgConfig)
 
 ################################################################################
@@ -36,8 +35,6 @@ find_package(PkgConfig)
 ################################################################################
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
-
 add_subdirectory(src)
 get_target_property(libJSBSim_LINK_LIBRARIES libJSBSim LINK_LIBRARIES)
 
