@@ -40,13 +40,14 @@ INCLUDES
 
 #if defined(_MSC_VER) || defined(__MINGW32__)
 #include <ws2tcpip.h>
+
 #elif defined(__OpenBSD__)
 #include <sys/types.h>
 #include <sys/socket.h>
-#include "sys/select.h"
 #include <netdb.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "./select.h"
 #else
 #include <fcntl.h>
 #include <unistd.h>
@@ -374,14 +375,7 @@ void FGfdmSocket::Send(const char *data, int length)
 
 void FGfdmSocket::WaitUntilReadable(void)
 {
-  if (sckt_in <= 0)
-    return;
-
-  fd_set fds;
-  FD_ZERO(&fds);
-  FD_SET(sckt_in, &fds);
-  select(sckt_in+1, &fds, NULL, NULL, NULL);
-
+  return;
   /*
     If you want to check select return status:
 

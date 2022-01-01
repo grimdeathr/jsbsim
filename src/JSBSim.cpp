@@ -283,10 +283,10 @@ int main(int argc, char* argv[])
 {
 #if defined(_MSC_VER) || defined(__MINGW32__)
   _clearfp();
-  _controlfp(_controlfp(0, 0) & ~(_EM_INVALID | _EM_ZERODIVIDE | _EM_OVERFLOW),
-           _MCW_EM);
+  _controlfp(_controlfp(0, 0) & ~(0 | 1 | 2),
+           3);
 #elif defined(__GNUC__) && !defined(sgi) && !defined(__APPLE__)
-  feenableexcept(FE_DIVBYZERO | FE_INVALID);
+  // feenableexcept(FE_DIVBYZERO | FE_INVALID);
 #endif
 
   try {
